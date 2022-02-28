@@ -42,3 +42,17 @@ void vector_rot(const vector_t &alpha, const double &rel_x, const double &rel_y,
     dst.y = k_1_0 * alpha.x + k_1_1 * alpha.y + k_1_2 * alpha.z;
     dst.z = k_2_0 * alpha.x + k_2_1 * alpha.y + k_2_2 * alpha.z;
 }
+
+void vector_prj(const vector_t &alpha, const double &rel_x, const double &rel_y, const double &rel_z, vector_t &dst)
+{
+    double dx = PI / 2.0 - rel_x;
+    double dy = PI / 2.0 - rel_y;
+    double dz = PI - rel_z;
+
+    vector_t rotated_vector;
+    vector_rot(alpha, dx, dy, dz, rotated_vector);
+
+    dst.x = rotated_vector.x;
+    dst.y = rotated_vector.y;
+    dst.z = 0.0;
+}

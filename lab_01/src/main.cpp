@@ -3,9 +3,6 @@
 
 #include "../inc/vector.h"
 
-#define PI (acos(-1.0))
-#define EPS 1e-6
-
 int main() {
     using namespace std;
     cout << "Hello, World!" << endl;
@@ -28,6 +25,12 @@ int main() {
     vector_pri(c);
     vector_rot(c, PI/2, 0, 0, op_03);
     vector_pri(op_03);
+
+
+    vector_t op_04, d = {1, 1, 1};
+    vector_prj(d, PI/2, PI/2, PI, op_04);
+    vector_pri(op_04);
+
 
     return 0;
 }
